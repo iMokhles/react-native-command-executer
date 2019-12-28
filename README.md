@@ -11,8 +11,19 @@
 ## Usage
 ```javascript
 import SNCommandExecuter from 'react-native-command-executer';
+        // Non root command
+        SNCommandExecuter.nonRootExec("echo NOT ROOTED").then((result) => {
+                console.log("LOG: "+result.stdout);
+            }
+        ).catch((error) => {
+            console.log("ERROR LOG: "+error);
+        });
 
-// TODO: What to do with the module?
-let canExecute = SNCommandExecuter.canExecuteSu();
-console.log('Can Execute: '+ canExecute);
+        // Root command
+        SNCommandExecuter.rootExec("echo ROOTED").then((result) => {
+                console.log("LOG: "+result.stdout);
+            }
+        ).catch((error) => {
+            console.log("ERROR LOG: "+error);
+        });
 ```
